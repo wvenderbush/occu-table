@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title> {{ title }} </title>
+		<style>
+			table, th, td {
+			    border: 1px solid black;
+			    border-collapse: collapse;
+			}
+		</style>
+	<head>
+
+	<body>
+		<h1><center>Occu-Table Website</center></h1>
+			<p><center>Welcome to Winston's occupation website, where you'll certainly find the job of your dreams! Our complex algorithm has analyze your DNA as you've been interacting with your computer to determine your most suitable occupation from the choices below!  </center></p>
+
+			<hr>
+			<br>
+			<center>Your job should be: <b>{{ job }}</b></center>
+			<br>
+			<hr>
+
+			<h2><center> Available Jobs </h2></center>
+			<center>
+			<table>
+	    		{% for key, value in collection.iteritems() %}
+					<tr>
+				    	<th> {{ key }} </th>
+				    	<td> {{ value }}% </td>
+					</tr>
+				{% endfor %}
+			</table>
+			</center>
+			<br>
+
+
+
+	</body>
+
+</html>
