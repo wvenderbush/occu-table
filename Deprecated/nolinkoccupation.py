@@ -24,31 +24,27 @@ def randSelect():
 			flag = True
 		else:
 			ind = line.rfind(',');
-			rem = line[:ind]
-			link = line[ind+1:]
-			#print(rem)
-			ind = rem.rfind(',');
-			key = rem[:ind]
-			val = rem[ind+1:]
+			key = line[:ind]
+			val = line[ind+1:]
 			val = float(val)
-			lst = []
-			lst.insert(0, val)
-			lst.insert(1, link)
-			d[key] = lst
+			d[key] = val
 	d.pop(key)
 	f = random.random() * 100
 	randJob = "";
 	percentctr = 0.0
 	for key in d:
-		if f < percentctr + d[key][0]:
+		if f < percentctr + d[key]:
 			randJob = key
-			jlink = d[key][1]
 			break
 		else:
-			percentctr += d[key][0]
-	return render_template('sample.html', title = "Occu-table", collection = d, job = randJob, link = jlink)
+			percentctr += d[key]
+	return render_template('sample.html', title = "Occu-table", collection = d, job = randJob)
 
 
 if __name__ == "__main__":
     app.debug = True 
     app.run()
+
+
+
+
