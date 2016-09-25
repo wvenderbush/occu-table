@@ -18,7 +18,7 @@
 
 			<hr>
 			<br>
-			<center>Your job should be: <b>{{ job }}</b></center>
+			<center>Your job should be: <a href= {{link}} ><b>{{ job }}</b></a></center>
 			<br>
 			<hr>
 
@@ -27,8 +27,8 @@
 			<table>
 	    		{% for key, value in collection.iteritems() %}
 					<tr>
-				    	<th> {{ key }} </th>
-				    	<td> {{ value }}% </td>
+				    	<th> <a href= {{value[1]}} >{{ key }} </a></th>
+				    	<td> {{ value[0] }}% </td>
 					</tr>
 				{% endfor %}
 			</table>
